@@ -36,44 +36,45 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spider-Verse Chronicle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Verse Chronicle</title>
 </head>
+
 <body>
-    <h1>The Spider-Verse Chronicle</h1>
-    <h2>Spider-Man History Museum</h2>
-    
-    <div id="timeline">
-        <button>1960s</button>
-        <button>1970s</button>
-        <button>1980s</button>
+  <h1>The Spider-Verse Chronicle</h1>
+  <h2>Spider-Man History Museum</h2>
+
+  <div id="timeline">
+    <button>1960s</button>
+    <button>1970s</button>
+    <button>1980s</button>
+  </div>
+
+  <div id="content-display">
+    <?php if ($decade_data): ?>
+    <h3>The <?php echo $decade_data['year']; ?>s</h3>
+    <p><?php echo $decade_data['decade_summary']; ?></p>
+
+    <div class="character-box">
+      <strong>Key Characters:</strong>
+      <p><?php echo $decade_data['character_summary']; ?></p>
     </div>
 
-    <div id="content-display">
-<?php if ($decade_data): ?>
-            
-            <h3>The <?php echo $decade_data['year']; ?>s</h3>
-            <p><?php echo $decade_data['decade_summary']; ?></p>
-
-            <div class="character-box">
-                <strong>Key Characters:</strong> 
-                <p><?php echo $decade_data['character_summary']; ?></p>
-            </div>
-
-            <div class="comic-gallery">
-                <?php while($comic = $comics_result->fetch_assoc()): ?>
-                    <div class="comic-item">
-                        <img src="<?php echo $comic['image_filepath']; ?>" alt="<?php echo $comic['title']; ?>">
-                        <p><strong><?php echo $comic['title']; ?></strong></p>
-                    </div>
-                <?php endwhile; ?>
-            </div>
-
-        <?php else: ?>
-            <p>Select a decade to view the history.</p>
-        <?php endif; ?>
+    <div class="comic-gallery">
+      <?php while($comic = $comics_result->fetch_assoc()): ?>
+      <div class="comic-item">
+        <img src="<?php echo $comic['image_filepath']; ?>" alt="<?php echo $comic['title']; ?>">
+        <p><strong><?php echo $comic['title']; ?></strong></p>
+      </div>
+      <?php endwhile; ?>
     </div>
+
+    <?php else: ?>
+      <p>Select a decade to view the history.</p>
+    <?php endif; ?>
+  </div>
 </body>
 </html>
