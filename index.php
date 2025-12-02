@@ -17,7 +17,7 @@ $conn = new mysqli('127.0.0.1', $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
 // Fetch 1960s Data for the MVP
@@ -27,8 +27,8 @@ $decade_data = $decade_result->fetch_assoc();
 
 // Fetch Comics for that decade
 if ($decade_data) {
-    $comics_sql = "SELECT * FROM comics WHERE decade_id = " . $decade_data['id'];
-    $comics_result = $conn->query($comics_sql);
+  $comics_sql = "SELECT * FROM comics WHERE decade_id = " . $decade_data['id'];
+  $comics_result = $conn->query($comics_sql);
 }
 
 $conn->close();
