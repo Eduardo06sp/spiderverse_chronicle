@@ -40,6 +40,7 @@ $conn->close();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="stylesheets/index.css" rel="stylesheet">
   <title>Spider-Verse Chronicle</title>
 </head>
 
