@@ -41,6 +41,7 @@ $conn->close();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="stylesheets/index.css" rel="stylesheet">
+  <link rel="icon" href="assets/images/spiderman_mask_icon.jpg" type="image/x-icon">
   <title>Spider-Verse Chronicle</title>
 </head>
 
