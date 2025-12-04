@@ -1,0 +1,44 @@
+/* CSS Reset */
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#intro-gradient {
+  background: linear-gradient(to bottom right, #DF1F2d, #B11313 10%, #2B3784, #447BBE);
+  height: 100vh;
+  /* #DF1F2d, #B11313, #2B3784, #447BBE*/
+}
+
+.decade {
+  display: flex;
+  flex-direction: row;
+}
+
+.comic-covers {
+  flex: 4;
+}
+
+.comic {
+  width: 100%;
+}
+
+.decade-info {
+  flex: 6;
+}
+
+h3 {
+  text-align: center;
+}
+
+.artist-list {
+  text-align: center;
+}

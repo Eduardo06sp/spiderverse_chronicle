@@ -46,8 +46,34 @@ $conn->close();
 </head>
 
 <body>
-  <h1>The Spider-Verse Chronicle</h1>
-  <h2>Spider-Man History Museum</h2>
+  <div id="intro-gradient">
+    <h1>The Spider-Verse Chronicle</h1>
+    <h2>Spider-Man History Museum</h2>
+
+    <p>IST 4310</p>
+  </div>
+
+  <div id="timeline">
+    <div class="decade">
+      <div class="comic-covers">
+        <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
+        <!-- MOBILE VIEW, START WITH 1 PICTURE PREVIEW -->
+        <div class="comic-container">
+          <img class="comic" src="assets/images/03_cover.jpg">
+        </div>
+        <!--
+        <img class="comic" src="assets/images/07_cover.jpg">
+        <img class="comic" src="assets/images/08_cover.jpg">
+        -->
+      </div>
+      <div class="decade-info">
+        <h3 class="year">60s</h3>
+        <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
+      </div>
+    </div>
+  </div>
+
+  <h1>BELOW IS DUPLICATE</h1>
 
   <div id="timeline">
     <button>1960s</button>
