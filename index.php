@@ -48,27 +48,32 @@ $conn->close();
 <body>
   <div id="intro-gradient">
     <h1>The Spider-Verse Chronicle</h1>
-    <h2>Spider-Man History Museum</h2>
-
     <p>IST 4310</p>
   </div>
 
   <div id="timeline">
     <div class="decade">
-      <div class="comic-covers">
-        <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-        <!-- MOBILE VIEW, START WITH 1 PICTURE PREVIEW -->
-        <div class="comic-container">
-          <img class="comic" src="assets/images/03_cover.jpg">
+      <div class="contracted">
+        <div class="decade-info">
+          <h2 class="year">The 1960s</h2>
+          <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
         </div>
-        <!--
-        <img class="comic" src="assets/images/07_cover.jpg">
-        <img class="comic" src="assets/images/08_cover.jpg">
-        -->
+        <div class="comic-covers">
+          <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
+          <div class="comic-container">
+            <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
+            <!-- MISSING DESIGN FOR CONTRACTED STATE -->
+            <img class="comic" src="assets/images/03_cover.jpg">
+            <img class="comic" src="assets/images/07_cover.jpg">
+            <img class="comic" src="assets/images/08_cover.jpg">
+          </div>
+        </div>
       </div>
-      <div class="decade-info">
-        <h3 class="year">60s</h3>
-        <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
+      <div class="expanded-info">
+        <h3 class="summary-heading">Summary</h3>
+        <p class="decade-summary">After Norman Osborn regains his memory and becomes the Green Goblin again, he kidnaps Gwen Stacy to lure Spider-Man. He throws Gwen from the top of the George Washington (or Brooklyn) Bridge. Spider-Man shoots a web-line to save her, but the sudden stop results in a "snap" at her neck, killing her instantly. A devastated and enraged Spider-Man seeks vengeance.</p>
+        <h3 class="characters-heading">Key Characters</h3>
+        <p class="key-characters">Event: The Night Gwen Stacy Died. Also includes the first appearance of the Green Goblin (Norman Osborn) since his amnesia.</p>
       </div>
     </div>
   </div>

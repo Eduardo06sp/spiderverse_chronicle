@@ -15,30 +15,32 @@ html {
 #intro-gradient {
   background: linear-gradient(to bottom right, #DF1F2d, #B11313 10%, #2B3784, #447BBE);
   height: 100vh;
-  /* #DF1F2d, #B11313, #2B3784, #447BBE*/
 }
 
-.decade {
-  display: flex;
-  flex-direction: row;
+h2 {
+  margin: 12px 0 12px 0;
 }
 
-.comic-covers {
-  flex: 4;
+h2, h3 {
+  text-align: center;
+}
+
+.artist-list {
+  text-align: center;
+}
+
+
+.comic-container {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
 }
 
 .comic {
   width: 100%;
 }
 
-.decade-info {
-  flex: 6;
-}
-
 h3 {
-  text-align: center;
-}
-
-.artist-list {
-  text-align: center;
+  margin-top: 12px;
 }
