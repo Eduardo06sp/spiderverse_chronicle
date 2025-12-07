@@ -109,5 +109,10 @@ $conn->close();
       <p>Select a decade to view the history.</p>
     <?php endif; ?>
   </div>
+
+  <div id="footer">
+    <p>Made for class project - IST 4310 - CSUSB</p>
+    <p><a href="">Source code on GitHub</a></p>
+  </div>
 </body>
 </html>
