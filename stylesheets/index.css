@@ -17,9 +17,9 @@ html {
   height: 100vh;
 }
 
-#timeline {
+.decade {
   background: url('../assets/images/background_mobile.png');
-  background-size: contain;
+  background-size: cover;
 }
 
 h2 {
