@@ -17,6 +17,10 @@ html {
   height: 100vh;
 }
 
+#timeline {
+  background: url('assets/images/.png');
+}
+
 h2 {
   margin: 12px 0 12px 0;
 }
