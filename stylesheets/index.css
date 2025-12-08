@@ -12,6 +12,10 @@ html {
   padding: 0;
 }
 
+body {
+  color: white;
+}
+
 #intro-gradient {
   background: linear-gradient(#DF1F2d, #B11313, 80%, #000000);
   height: 100vh;
