@@ -18,7 +18,8 @@ html {
 }
 
 #timeline {
-  background: url('assets/images/.png');
+  background: url('../assets/images/background_mobile.png');
+  background-size: contain;
 }
 
 h2 {
