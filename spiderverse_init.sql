@@ -1,56 +1,160 @@
--- 1. Create/Reset Database
+-- Database Creation
 CREATE DATABASE IF NOT EXISTS spiderverse_chronicle;
 USE spiderverse_chronicle;
 
--- Disable foreign key checks to allow dropping tables freely
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ==========================================
--- 2. Create Tables (Based on your new Diagram)
--- ==========================================
-
--- Table: decades
--- Matches the "decades" box in your image
-DROP TABLE IF EXISTS `decades`;
-CREATE TABLE `decades` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `year` INT NOT NULL,              -- Changed from 'decade' string to 'year' integer per diagram
-  `decade_summary` TEXT,
-  `character_summary` TEXT,         -- New column to hold character info
-  `comic_id` INT,                   -- Optional: Can link to a "featured" comic
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+-- 1. Table: Eras
+DROP TABLE IF EXISTS `eras`;
+CREATE TABLE `eras` (
+  `era_id` INT NOT NULL AUTO_INCREMENT,
+  `decade` VARCHAR(20) NOT NULL,
+  `summary` TEXT,
+  PRIMARY KEY (`era_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table: comics
--- Matches the "comics" box in your image
-DROP TABLE IF EXISTS `comics`;
-CREATE TABLE `comics` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `decade_id` INT,                  -- Added to link this comic to a decade (Required for 1-to-Many)
-  `title` VARCHAR(255),
-  `image_filepath` TEXT,
-  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`decade_id`) REFERENCES `decades`(`id`) ON DELETE CASCADE
+-- 2. Table: Characters
+DROP TABLE IF EXISTS `characters`;
+CREATE TABLE `characters` (
+  `character_id` INT NOT NULL AUTO_INCREMENT,
+  `era_id` INT,
+  `name` VARCHAR(100) NOT NULL,
+  `real_name` VARCHAR(100),
+  `description` TEXT,
+  PRIMARY KEY (`character_id`),
+  FOREIGN KEY (`era_id`) REFERENCES `eras`(`era_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Re-enable foreign key checks
-SET FOREIGN_KEY_CHECKS = 1;
+-- 3. Table: Comic Covers
+DROP TABLE IF EXISTS `comic_covers`;
+CREATE TABLE `comic_covers` (
+  `cover_id` INT NOT NULL AUTO_INCREMENT,
+  `era_id` INT,
+  `title` VARCHAR(255) NOT NULL,
+  `issue` VARCHAR(50),
+  `description` TEXT,
+  `image_url` VARCHAR(255),
+  PRIMARY KEY (`cover_id`),
+  FOREIGN KEY (`era_id`) REFERENCES `eras`(`era_id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ==========================================
--- 3. Insert Sample Data (The 1960s)
+-- Populating Data for ALL Eras (From Uploaded PDF)
 -- ==========================================
 
--- Insert 1960s Data into 'decades'
-INSERT INTO `decades` (`year`, `decade_summary`, `character_summary`) VALUES 
-(1960, 
- 'The 1960s marked the birth of Spider-Man. Created by Stan Lee and Steve Ditko, Peter Parker first appeared in Amazing Fantasy #15 (1962). This era defined the core mythos: the spider bite, the tragic death of Uncle Ben, and the lesson that with great power comes great responsibility.',
- 'Key Characters: Spider-Man (Peter Parker), Uncle Ben, Aunt May, J. Jonah Jameson, Green Goblin, and Doctor Octopus.'
-);
+LOCK TABLES `eras` WRITE;
+INSERT INTO `eras` (`decade`, `summary`) VALUES 
+('1960s', 'The 1960s marked the birth of Spider-Man. Created by Stan Lee and Steve Ditko, Peter Parker first appeared in Amazing Fantasy #15 (1962). This era defined the core mythos: the spider bite, the tragic death of Uncle Ben, and the lesson that with great power comes great responsibility. It introduced key supporting characters and iconic villains that would challenge the wall-crawler for decades.'),
+('1970s', 'The 1970s brought tragedy and maturity to Peter Parker''s life. The death of Gwen Stacy marked the end of the Silver Age of Comic Books, signaling darker storytelling. Spider-Man battled the Punisher, Morbius, and the Black Cat, while his relationship with Mary Jane Watson deepened amidst the grief.'),
+('1980s', 'The 1980s introduced the iconic Black Suit (symbiote) which would eventually become Venom. The stories became grittier with ''Kraven''s Last Hunt'' and the introduction of the Hobgoblin. Peter Parker matured, marrying Mary Jane Watson in 1987, a major status quo shift.'),
+('1990s', 'The 1990s were defined by the Clone Saga, seeing the return of Peter''s clone Ben Reilly (Scarlet Spider). The era was chaotic but introduced fan-favorites like Carnage and Spider-Man 2099. The artwork became more stylized, reflecting the ''extreme'' nature of 90s comics.'),
+('2000s', 'The 2000s reinvented the mythos with the Ultimate Spider-Man universe, offering a modern take on Peter''s origins. In the main continuity, Peter joined the New Avengers, revealed his identity to the world during Civil War, and faced the controversial ''One More Day'' storyline which reset his marriage.'),
+('2010s', 'The 2010s expanded the Spider-Verse significantly. The death of Ultimate Peter Parker led to the rise of Miles Morales. The ''Spider-Verse'' event introduced Spider-Gwen, Silk, and a multiverse of Spider-People. Peter became a global tech CEO in ''Parker Industries'' before returning to his roots.');
+UNLOCK TABLES;
 
--- Insert Comics (Linked to the 1960s decade we just created, assumed ID=1)
-INSERT INTO `comics` (`decade_id`, `title`, `image_filepath`) VALUES 
-(1, 'Amazing Fantasy #15', '/assets/covers/amazing_fantasy_15.jpg'),
-(1, 'The Amazing Spider-Man #1', '/assets/covers/amazing_spiderman_1.jpg'),
-(1, 'The Amazing Spider-Man #50', '/assets/covers/amazing_spiderman_50.jpg');
+LOCK TABLES `characters` WRITE;
+INSERT INTO `characters` (`era_id`, `name`, `real_name`, `description`) VALUES 
+(1, 'Spider-Man', 'Peter Parker', 'A high school student bitten by a radioactive spider, gaining superhuman strength, agility, and the ability to cling to walls. Motivated by the death of his uncle, he fights crime while balancing a chaotic personal life.'),
+(1, 'Uncle Ben', 'Ben Parker', 'Peter’s beloved uncle and father figure. His tragic death at the hands of a burglar Peter failed to stop serves as the catalyst for Spider-Man’s heroism.'),
+(1, 'Aunt May', 'May Parker', 'Peter’s doting and somewhat fragile aunt. She raises Peter alone after Ben’s death, unaware of his secret identity.'),
+(1, 'J. Jonah Jameson', 'J. Jonah Jameson', 'The blustering, Spider-Man-hating publisher of the Daily Bugle. He considers Spider-Man a menace and uses his paper to sway public opinion against him.'),
+(1, 'Green Goblin', 'Norman Osborn', 'An industrialist driven insane by a strength-enhancing formula. He becomes Spider-Man’s archenemy, armed with pumpkin bombs and a goblin glider.'),
+(1, 'Doctor Octopus', 'Otto Octavius', 'A brilliant nuclear physicist bonded with four mechanical tentacles in a lab accident. He is one of Spider-Man’s most intelligent and dangerous foes.'),
+(2, 'Gwen Stacy', 'Gwen Stacy', 'Peter''s first true love. Her death at the hands of the Green Goblin is one of the most defining moments in Spider-Man history.'),
+(2, 'Mary Jane Watson', 'Mary Jane Watson', 'The girl next door who becomes Peter''s confidante and eventual wife. Known for her catchphrase, "Face it, Tiger..."'),
+(2, 'The Punisher', 'Frank Castle', 'A vigilante who initially targets Spider-Man, believing him to be a criminal. He uses lethal force in his war on crime.'),
+(2, 'Black Cat', 'Felicia Hardy', 'A skilled cat burglar who has a complicated romantic relationship with Spider-Man, but is less interested in Peter Parker.'),
+(2, 'Morbius', 'Michael Morbius', 'A biochemist turned into a "living vampire" after a failed experiment to cure his rare blood disease.'),
+(3, 'Venom', 'Eddie Brock', 'A disgraced journalist who bonds with Spider-Man''s rejected alien costume to seek revenge on Peter Parker.'),
+(3, 'Hobgoblin', 'Roderick Kingsley', 'A fashion designer who discovers Norman Osborn''s equipment and improves upon it to become a crime lord.'),
+(3, 'Kingpin', 'Wilson Fisk', 'The Kingpin of Crime in NYC. While a Daredevil villain, he becomes a major antagonist for Spider-Man during this era.'),
+(3, 'Madame Web', 'Cassandra Webb', 'A clairvoyant mutant who aids Spider-Man with her psychic powers, often guiding him through mystical threats.'),
+(4, 'Carnage', 'Cletus Kasady', 'A serial killer who bonds with the offspring of the Venom symbiote, becoming a chaotic force of pure destruction.'),
+(4, 'Scarlet Spider', 'Ben Reilly', 'A clone of Peter Parker created by the Jackal. He briefly takes over as Spider-Man during the Clone Saga.'),
+(4, 'Spider-Man 2099', 'Miguel O''Hara', 'A geneticist from the future who gains spider-powers in a lab accident, fighting corrupt corporations in 2099.'),
+(5, 'Morlun', 'Morlun', 'An ancient energy vampire who hunts Spider-Totems across the multiverse. He pushes Spider-Man to his absolute physical limits.'),
+(5, 'Ultimate Spider-Man', 'Peter Parker (Earth-1610)', 'A younger, modern version of Peter Parker from the Ultimate Universe, whose stories reintroduced Spidey to a new generation.'),
+(5, 'Ezekiel Sims', 'Ezekiel Sims', 'A man with spider-powers who reveals the mystical "totemic" nature of Spider-Man''s powers to Peter.'),
+(6, 'Miles Morales', 'Miles Morales', 'A teenager from Brooklyn who takes up the mantle of Spider-Man after the death of Peter Parker in the Ultimate Universe.'),
+(6, 'Spider-Gwen', 'Gwen Stacy (Earth-65)', 'A version of Gwen Stacy from an alternate universe who was bitten by the radioactive spider instead of Peter Parker.'),
+(6, 'Silk', 'Cindy Moon', 'A girl bitten by the same spider as Peter Parker, who was locked away in a bunker for years to protect her from Morlun.');
+UNLOCK TABLES;
+
+LOCK TABLES `comic_covers` WRITE;
+INSERT INTO `comic_covers` (`era_id`, `title`, `issue`, `description`, `image_url`) VALUES 
+(1, 'Amazing Fantasy', '#15', 'The first appearance of Spider-Man. The cover features Spidey swinging with a criminal under his arm, introducing the world to the new hero.', '/assets/covers/amazing_fantasy_15.jpg'),
+(1, 'The Amazing Spider-Man', '#1', 'Spider-Man’s first solo series. The cover shows him interacting with the Fantastic Four, cementing his place in the larger Marvel Universe.', '/assets/covers/amazing_spiderman_1.jpg'),
+(1, 'The Amazing Spider-Man', '#50', '"Spider-Man No More!" An iconic image of Peter Parker walking away from his Spider-Man suit, which is left in a trash can, symbolizing his internal conflict.', '/assets/covers/amazing_spiderman_50.jpg'),
+(2, 'The Amazing Spider-Man', '#121', 'The Night Gwen Stacy Died. A somber cover announcing a "Turning Point" in Spider-Man''s life.', '/assets/covers/amazing_spiderman_121.jpg'),
+(2, 'The Amazing Spider-Man', '#129', 'First appearance of The Punisher. The cover features the Punisher taking aim at Spider-Man.', '/assets/covers/amazing_spiderman_129.jpg'),
+(2, 'The Amazing Spider-Man', '#194', 'First appearance of Black Cat. Shows Black Cat leaping into action against Spider-Man.', '/assets/covers/amazing_spiderman_194.jpg'),
+(3, 'The Amazing Spider-Man', '#252', 'First appearance of the Black Suit in the main title. Homage to Amazing Fantasy #15.', '/assets/covers/amazing_spiderman_252.jpg'),
+(3, 'The Amazing Spider-Man', '#300', 'First full appearance of Venom. Todd McFarlane''s iconic cover of Venom grinning.', '/assets/covers/amazing_spiderman_300.jpg'),
+(3, 'The Amazing Spider-Man Annual', '#21', 'The Wedding of Spider-Man and Mary Jane. A joyous cover featuring the couple on their wedding day.', '/assets/covers/amazing_spiderman_annual_21.jpg'),
+(4, 'The Amazing Spider-Man', '#361', 'First full appearance of Carnage. Shows Carnage''s chaotic symbiote tendrils.', '/assets/covers/amazing_spiderman_361.jpg'),
+(4, 'Spider-Man 2099', '#1', 'Debut of the future Spider-Man. Foil cover featuring the futuristic suit design.', '/assets/covers/spiderman_2099_1.jpg'),
+(4, 'Web of Spider-Man', '#118', 'Start of the Clone Saga key arcs. Features the Scarlet Spider (Ben Reilly).', '/assets/covers/web_of_spiderman_118.jpg'),
+(5, 'Ultimate Spider-Man', '#1', 'The start of the Ultimate Universe. A modernized, younger Peter Parker unmasked.', '/assets/covers/ultimate_spiderman_1.jpg'),
+(5, 'The Amazing Spider-Man', '#36', 'The 9/11 Tribute Issue. A black cover honoring the victims of the tragedy.', '/assets/covers/amazing_spiderman_36.jpg'),
+(5, 'The Amazing Spider-Man', '#583', 'Spider-Man meets President Obama. A special variant cover featuring Barack Obama.', '/assets/covers/amazing_spiderman_583.jpg'),
+(6, 'Ultimate Fallout', '#4', 'First appearance of Miles Morales. Shows Miles holding the Spider-Man mask.', '/assets/covers/ultimate_fallout_4.jpg'),
+(6, 'Edge of Spider-Verse', '#2', 'First appearance of Spider-Gwen. Features Gwen Stacy in her distinctive hooded costume.', '/assets/covers/edge_of_spiderverse_2.jpg'),
+(6, 'The Amazing Spider-Man', '#700', 'Death of Peter Parker / Superior Spider-Man begins. A collage cover celebrating 700 issues.', '/assets/covers/amazing_spiderman_700.jpg');
+UNLOCK TABLES;
+CREATE DATABASE IF NOT EXISTS spiderverse_chronicle;
+USE spiderverse_chronicle;
+
+-- 1. Table: Eras (Stores the decade info)
+DROP TABLE IF EXISTS `eras`;
+CREATE TABLE `eras` (
+  `era_id` INT NOT NULL AUTO_INCREMENT,
+  `decade` VARCHAR(20) NOT NULL,
+  `summary` TEXT,
+  PRIMARY KEY (`era_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 2. Table: Characters (Linked to Era)
+DROP TABLE IF EXISTS `characters`;
+CREATE TABLE `characters` (
+  `character_id` INT NOT NULL AUTO_INCREMENT,
+  `era_id` INT,
+  `name` VARCHAR(100) NOT NULL,
+  `real_name` VARCHAR(100),
+  `description` TEXT,
+  PRIMARY KEY (`character_id`),
+  FOREIGN KEY (`era_id`) REFERENCES `eras`(`era_id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 3. Table: Comic Covers (Linked to Era)
+DROP TABLE IF EXISTS `comic_covers`;
+CREATE TABLE `comic_covers` (
+  `cover_id` INT NOT NULL AUTO_INCREMENT,
+  `era_id` INT,
+  `title` VARCHAR(255) NOT NULL,
+  `issue` VARCHAR(50),
+  `description` TEXT,
+  `image_url` VARCHAR(255),
+  PRIMARY KEY (`cover_id`),
+  FOREIGN KEY (`era_id`) REFERENCES `eras`(`era_id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ==========================================
+-- Step 2: Sample Data for the 1960s
+-- ==========================================
+
+-- Insert 1960s Era
+INSERT INTO `eras` (`decade`, `summary`) VALUES 
+('1960s', 'The 1960s marked the birth of Spider-Man. Created by Stan Lee and Steve Ditko, Peter Parker first appeared in Amazing Fantasy #15 (1962). This era defined the core mythos: the spider bite, the tragic death of Uncle Ben, and the lesson that with great power comes great responsibility. It introduced key supporting characters and iconic villains that would challenge the wall-crawler for decades.');
+
+-- Insert Characters (Linked to 1960s, which is ID 1)
+INSERT INTO `characters` (`era_id`, `name`, `real_name`, `description`) VALUES 
+(1, 'Spider-Man', 'Peter Parker', 'A high school student bitten by a radioactive spider, gaining superhuman strength, agility, and the ability to cling to walls. Motivated by the death of his uncle, he fights crime while balancing a chaotic personal life.'),
+(1, 'Uncle Ben', 'Ben Parker', 'Peter’s beloved uncle and father figure. His tragic death at the hands of a burglar Peter failed to stop serves as the catalyst for Spider-Man’s heroism.'),
+(1, 'Aunt May', 'May Parker', 'Peter’s doting and somewhat fragile aunt. She raises Peter alone after Ben’s death, unaware of his secret identity.'),
+(1, 'J. Jonah Jameson', 'J. Jonah Jameson', 'The blustering, Spider-Man-hating publisher of the Daily Bugle. He considers Spider-Man a menace and uses his paper to sway public opinion against him.'),
+(1, 'Green Goblin', 'Norman Osborn', 'An industrialist driven insane by a strength-enhancing formula. He becomes Spider-Man’s archenemy, armed with pumpkin bombs and a goblin glider.'),
+(1, 'Doctor Octopus', 'Otto Octavius', 'A brilliant nuclear physicist bonded with four mechanical tentacles in a lab accident. He is one of Spider-Man’s most intelligent and dangerous foes.');
+
+-- Insert Comic Covers (Linked to 1960s)
+INSERT INTO `comic_covers` (`era_id`, `title`, `issue`, `description`, `image_url`) VALUES 
+(1, 'Amazing Fantasy', '#15', 'The first appearance of Spider-Man. The cover features Spidey swinging with a criminal under his arm, introducing the world to the new hero.', '/assets/covers/amazing_fantasy_15.jpg'),
+(1, 'The Amazing Spider-Man', '#1', 'Spider-Man’s first solo series. The cover shows him interacting with the Fantastic Four, cementing his place in the larger Marvel Universe.', '/assets/covers/amazing_spiderman_1.jpg'),
+(1, 'The Amazing Spider-Man', '#50', '"Spider-Man No More!" An iconic image of Peter Parker walking away from his Spider-Man suit, which is left in a trash can, symbolizing his internal conflict.', '/assets/covers/amazing_spiderman_50.jpg');
