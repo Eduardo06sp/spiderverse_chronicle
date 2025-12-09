@@ -43,7 +43,7 @@ $conn->close();
   <link href="stylesheets/index.css" rel="stylesheet">
   <link rel="icon" href="assets/images/spiderman_mask_icon.jpg" type="image/x-icon">
   <title>Spider-Verse Chronicle</title>
-  <script src="scripts/index.js"></script>
+  <script src="scripts/index.js" defer></script>
 </head>
 
 <body>
