@@ -52,8 +52,18 @@ h2, h3 {
   padding: 10px;
 }
 
+/*
+.contracted .comic-covers {
+  display: flex;
+}
+*/
+
 .comic {
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 h3 {
