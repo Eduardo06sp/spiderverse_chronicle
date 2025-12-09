@@ -20,19 +20,17 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-/*
 // Fetch 1960s Data for the MVP
-$decade_sql = "SELECT * FROM decades WHERE year = 1960";
+$decade_sql = "SELECT * FROM eras WHERE decade = '1960s'";
 $decade_result = $conn->query($decade_sql);
 $decade_data = $decade_result->fetch_assoc();
 
 // Fetch Comics for that decade
 if ($decade_data) {
-  $comics_sql = "SELECT * FROM comics WHERE decade_id = " . $decade_data['id'];
+  $comics_sql = "SELECT * FROM comic_covers WHERE era_id = " . $decade_data['era_id'];
   $comics_result = $conn->query($comics_sql);
 }
 
-*/
 $conn->close();
 ?>
 
