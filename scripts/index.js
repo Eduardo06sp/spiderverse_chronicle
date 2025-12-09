@@ -1,6 +1,7 @@
 const decade = document.querySelector('.decade');
 const comicCovers = document.getElementsByClassName('comic-covers');
 const comics = comicCovers[0].getElementsByClassName('comic');
+const expandedInfo = document.getElementsByClassName('expanded-info');
 
 console.log(decade);
 
@@ -14,6 +15,14 @@ function addContractClass(el) {
 
 function addHiddenClass(el) {
     el.classList.add('hidden');
+};
+
+function hideAll(els) {
+  const total = els.length;
+
+  for (let i = 0; i < total; i++) {
+    addHiddenClass(els[i]);
+  };
 };
 
 function onlyDisplayFirst(els) {
@@ -32,4 +41,5 @@ function toggleContent(e) {
 removeExpandClass(decade);
 addContractClass(decade);
 onlyDisplayFirst(comics);
+hideAll(expandedInfo);
 //decade.addEventListener('pointerdown', toggleContent(e));
