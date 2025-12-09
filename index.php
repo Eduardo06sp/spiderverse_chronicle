@@ -75,7 +75,6 @@ $conn->close();
         <p class="key-characters">Event: The Night Gwen Stacy Died. Also includes the first appearance of the Green Goblin (Norman Osborn) since his amnesia.</p>
       </div>
     </div>
-  </div>
 
   <!-- DELETE BELOW DUPLICATES -->
 
@@ -126,6 +125,8 @@ $conn->close();
     </div>
 
 
+<!--- END OF TIMELINE DIV -->
+  </div>
 
   <h1>BELOW IS DUPLICATE</h1>
 
