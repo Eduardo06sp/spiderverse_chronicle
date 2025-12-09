@@ -54,7 +54,7 @@ $conn->close();
 
   <div id="timeline">
     <div class="decade">
-      <div class="contracted">
+      <div class="expanded">
         <div class="decade-info">
           <h2 class="year">The 1960s</h2>
           <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
@@ -82,7 +82,7 @@ $conn->close();
   <!-- DELETE BELOW DUPLICATES -->
 
     <div class="decade">
-      <div class="contracted">
+      <div class="expanded">
         <div class="decade-info">
           <h2 class="year">The 1960s</h2>
           <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
@@ -107,7 +107,7 @@ $conn->close();
     </div>
 
     <div class="decade">
-      <div class="contracted">
+      <div class="expanded">
         <div class="decade-info">
           <h2 class="year">The 1960s</h2>
           <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
