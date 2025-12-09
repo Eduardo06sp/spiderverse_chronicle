@@ -26,7 +26,7 @@ function hideAll(els) {
 };
 
 function onlyDisplayFirst(els) {
-  total = els.length;
+  const total = els.length;
 
   for (let i = 1; i < total; i++) {
     addHiddenClass(els[i]);
