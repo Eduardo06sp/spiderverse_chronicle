@@ -20,6 +20,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+/*
 // Fetch 1960s Data for the MVP
 $decade_sql = "SELECT * FROM decades WHERE year = 1960";
 $decade_result = $conn->query($decade_sql);
@@ -31,6 +32,7 @@ if ($decade_data) {
   $comics_result = $conn->query($comics_sql);
 }
 
+*/
 $conn->close();
 ?>
 
