@@ -45,7 +45,7 @@ h2, h3 {
 }
 
 
-.comic-container {
+.comic-covers {
   display: grid;
   gap: 5px;
   grid-template-columns: 1fr 1fr;

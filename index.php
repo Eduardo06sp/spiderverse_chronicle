@@ -60,13 +60,11 @@ $conn->close();
       </div>
       <div class="comic-covers">
         <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-        <div class="comic-container">
-          <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
-          <!-- MISSING DESIGN FOR CONTRACTED STATE -->
-          <img class="comic" src="assets/images/03_cover.jpg">
-          <img class="comic" src="assets/images/07_cover.jpg">
-          <img class="comic" src="assets/images/08_cover.jpg">
-        </div>
+        <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
+        <!-- MISSING DESIGN FOR CONTRACTED STATE -->
+        <img class="comic" src="assets/images/03_cover.jpg">
+        <img class="comic" src="assets/images/07_cover.jpg">
+        <img class="comic" src="assets/images/08_cover.jpg">
       </div>
       <div class="expanded-info">
         <h3 class="summary-heading">Summary</h3>
@@ -85,13 +83,11 @@ $conn->close();
       </div>
       <div class="comic-covers">
         <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-        <div class="comic-container">
-          <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
-          <!-- MISSING DESIGN FOR CONTRACTED STATE -->
-          <img class="comic" src="assets/images/03_cover.jpg">
-          <img class="comic" src="assets/images/07_cover.jpg">
-          <img class="comic" src="assets/images/08_cover.jpg">
-        </div>
+        <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
+        <!-- MISSING DESIGN FOR CONTRACTED STATE -->
+        <img class="comic" src="assets/images/03_cover.jpg">
+        <img class="comic" src="assets/images/07_cover.jpg">
+        <img class="comic" src="assets/images/08_cover.jpg">
       </div>
       <div class="expanded-info">
         <h3 class="summary-heading">Summary</h3>
@@ -108,13 +104,11 @@ $conn->close();
       </div>
       <div class="comic-covers">
         <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-        <div class="comic-container">
-          <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
-          <!-- MISSING DESIGN FOR CONTRACTED STATE -->
-          <img class="comic" src="assets/images/03_cover.jpg">
-          <img class="comic" src="assets/images/07_cover.jpg">
-          <img class="comic" src="assets/images/08_cover.jpg">
-        </div>
+        <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
+        <!-- MISSING DESIGN FOR CONTRACTED STATE -->
+        <img class="comic" src="assets/images/03_cover.jpg">
+        <img class="comic" src="assets/images/07_cover.jpg">
+        <img class="comic" src="assets/images/08_cover.jpg">
       </div>
       <div class="expanded-info">
         <h3 class="summary-heading">Summary</h3>
@@ -123,6 +117,8 @@ $conn->close();
         <p class="key-characters">Event: The Night Gwen Stacy Died. Also includes the first appearance of the Green Goblin (Norman Osborn) since his amnesia.</p>
       </div>
     </div>
+
+
 
 
 <!--- END OF TIMELINE DIV -->
