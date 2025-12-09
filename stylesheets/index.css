@@ -52,11 +52,14 @@ h2, h3 {
   padding: 10px;
 }
 
-/*
 .contracted .comic-covers {
-  display: flex;
+  display: initial;
+  padding: 0;
 }
-*/
+
+.contracted .comic {
+  padding: 20px;
+}
 
 .comic {
   width: 100%;
