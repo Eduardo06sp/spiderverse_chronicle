@@ -53,21 +53,19 @@ $conn->close();
   </div>
 
   <div id="timeline">
-    <div class="decade">
-      <div class="expanded">
-        <div class="decade-info">
-          <h2 class="year">The 1960s</h2>
-          <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
-        </div>
-        <div class="comic-covers">
-          <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-          <div class="comic-container">
-            <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
-            <!-- MISSING DESIGN FOR CONTRACTED STATE -->
-            <img class="comic" src="assets/images/03_cover.jpg">
-            <img class="comic" src="assets/images/07_cover.jpg">
-            <img class="comic" src="assets/images/08_cover.jpg">
-          </div>
+    <div class="decade expanded">
+      <div class="decade-info">
+        <h2 class="year">The 1960s</h2>
+        <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
+      </div>
+      <div class="comic-covers">
+        <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
+        <div class="comic-container">
+          <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
+          <!-- MISSING DESIGN FOR CONTRACTED STATE -->
+          <img class="comic" src="assets/images/03_cover.jpg">
+          <img class="comic" src="assets/images/07_cover.jpg">
+          <img class="comic" src="assets/images/08_cover.jpg">
         </div>
       </div>
       <div class="expanded-info">
@@ -81,21 +79,19 @@ $conn->close();
 
   <!-- DELETE BELOW DUPLICATES -->
 
-    <div class="decade">
-      <div class="expanded">
-        <div class="decade-info">
-          <h2 class="year">The 1960s</h2>
-          <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
-        </div>
-        <div class="comic-covers">
-          <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-          <div class="comic-container">
-            <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
-            <!-- MISSING DESIGN FOR CONTRACTED STATE -->
-            <img class="comic" src="assets/images/03_cover.jpg">
-            <img class="comic" src="assets/images/07_cover.jpg">
-            <img class="comic" src="assets/images/08_cover.jpg">
-          </div>
+    <div class="decade expanded">
+      <div class="decade-info">
+        <h2 class="year">The 1960s</h2>
+        <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
+      </div>
+      <div class="comic-covers">
+        <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
+        <div class="comic-container">
+          <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
+          <!-- MISSING DESIGN FOR CONTRACTED STATE -->
+          <img class="comic" src="assets/images/03_cover.jpg">
+          <img class="comic" src="assets/images/07_cover.jpg">
+          <img class="comic" src="assets/images/08_cover.jpg">
         </div>
       </div>
       <div class="expanded-info">
@@ -106,21 +102,19 @@ $conn->close();
       </div>
     </div>
 
-    <div class="decade">
-      <div class="expanded">
-        <div class="decade-info">
-          <h2 class="year">The 1960s</h2>
-          <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
-        </div>
-        <div class="comic-covers">
-          <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-          <div class="comic-container">
-            <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
-            <!-- MISSING DESIGN FOR CONTRACTED STATE -->
-            <img class="comic" src="assets/images/03_cover.jpg">
-            <img class="comic" src="assets/images/07_cover.jpg">
-            <img class="comic" src="assets/images/08_cover.jpg">
-          </div>
+    <div class="decade expanded">
+      <div class="decade-info">
+        <h2 class="year">The 1960s</h2>
+        <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
+      </div>
+      <div class="comic-covers">
+        <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
+        <div class="comic-container">
+          <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
+          <!-- MISSING DESIGN FOR CONTRACTED STATE -->
+          <img class="comic" src="assets/images/03_cover.jpg">
+          <img class="comic" src="assets/images/07_cover.jpg">
+          <img class="comic" src="assets/images/08_cover.jpg">
         </div>
       </div>
       <div class="expanded-info">
@@ -130,6 +124,7 @@ $conn->close();
         <p class="key-characters">Event: The Night Gwen Stacy Died. Also includes the first appearance of the Green Goblin (Norman Osborn) since his amnesia.</p>
       </div>
     </div>
+
 
 
   <h1>BELOW IS DUPLICATE</h1>
