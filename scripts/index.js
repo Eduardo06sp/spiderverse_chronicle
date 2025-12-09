@@ -12,11 +12,15 @@ function addContractClass(el) {
   el.classList.add('contracted');
 };
 
+function addHiddenClass(el) {
+    el.classList.add('hidden');
+};
+
 function onlyDisplayFirst(els) {
   total = els.length;
 
   for (let i = 1; i < total; i++) {
-    els[i].classList.add('hidden');
+    addHiddenClass(els[i]);
   };
 };
 
