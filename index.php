@@ -69,13 +69,13 @@ $conn->close();
         <img class="comic" src="assets/images/07_cover.jpg">
         <img class="comic" src="assets/images/08_cover.jpg">
       </div>
+      <button class="expand-contract-toggle">See More</button>
       <div class="expanded-info">
         <h3 class="summary-heading">Summary</h3>
         <p class="decade-summary">After Norman Osborn regains his memory and becomes the Green Goblin again, he kidnaps Gwen Stacy to lure Spider-Man. He throws Gwen from the top of the George Washington (or Brooklyn) Bridge. Spider-Man shoots a web-line to save her, but the sudden stop results in a "snap" at her neck, killing her instantly. A devastated and enraged Spider-Man seeks vengeance.</p>
         <h3 class="characters-heading">Key Characters</h3>
         <p class="key-characters">Event: The Night Gwen Stacy Died. Also includes the first appearance of the Green Goblin (Norman Osborn) since his amnesia.</p>
       </div>
-      <button class="expand-contract-toggle">Expand</button>
     </div>
 
   <!-- DELETE BELOW DUPLICATES -->

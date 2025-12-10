@@ -2,6 +2,7 @@ const decade = document.querySelector('.decade');
 const comicCovers = document.getElementsByClassName('comic-covers');
 const comics = comicCovers[0].getElementsByClassName('comic');
 const expandedInfo = document.getElementsByClassName('expanded-info');
+const expandContractToggle = document.getElementsByClassName('expand-contract-toggle');
 
 console.log(decade);
 
@@ -33,13 +34,22 @@ function onlyDisplayFirst(els) {
   };
 };
 
-/*
-function toggleContent(e) {
+function toggleVisibility(el) {
+  el.classList.toggle('hidden');
 };
-*/
+
+function toggleContent(e) {
+  if (e.target.textContent == 'See More' && expandedInfo[0].classList.contains('hidden')) {
+    toggleVisibility(expandedInfo[0]);
+    e.target.textContent = 'See Less';
+  } else if (e.target.textContent == 'See Less' && !(expandedInfo[0].classList.contains('hidden'))) {
+    toggleVisibility(expandedInfo[0]);
+    e.target.textContent = 'See More';
+  }
+};
 
 removeExpandClass(decade);
 addContractClass(decade);
 onlyDisplayFirst(comics);
 hideAll(expandedInfo);
-//decade.addEventListener('pointerdown', toggleContent(e));
+expandContractToggle[0].addEventListener('pointerdown', toggleContent);
