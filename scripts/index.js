@@ -55,7 +55,6 @@ for (let i = 0; i < comicCovers.length; i++) {
 
   removeExpandClass(decades[i]);
   addContractClass(decades[i]);
-  onlyDisplayFirst(comics);
 }
 
 for (let i = 0; i < expandContractToggles.length; i++) {
@@ -65,6 +64,12 @@ for (let i = 0; i < expandContractToggles.length; i++) {
 if (window.visualViewport.width < 1280) {
   /* Mobile view */
   onlyDisplayFirst(decades);
+
+  for (let i = 0; i < comicCovers.length; i++) {
+    const comics = comicCovers[i].getElementsByClassName('comic');
+
+    onlyDisplayFirst(comics);
+  };
 } else {
   /* Desktop view */
   const arrows = document.getElementsByClassName('arrow');
