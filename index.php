@@ -75,6 +75,7 @@ $conn->close();
         <h3 class="characters-heading">Key Characters</h3>
         <p class="key-characters">Event: The Night Gwen Stacy Died. Also includes the first appearance of the Green Goblin (Norman Osborn) since his amnesia.</p>
       </div>
+      <button class="expand-contract-toggle">Expand</button>
     </div>
 
   <!-- DELETE BELOW DUPLICATES -->
