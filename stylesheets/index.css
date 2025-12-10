@@ -40,11 +40,6 @@ h2, h3 {
   text-align: center;
 }
 
-.artist-list {
-  text-align: center;
-}
-
-
 .comic-covers {
   display: grid;
   gap: 5px;

@@ -56,7 +56,6 @@ $conn->close();
     <div class="decade expanded">
       <div class="decade-info">
         <h2 class="year">The 1960s</h2>
-        <p class="artist-list">Stan Lee ~ Steve Ditko ~ John Romita</p>
       </div>
       <div class="comic-covers">
         <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
