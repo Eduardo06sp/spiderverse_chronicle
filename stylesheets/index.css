@@ -14,6 +14,7 @@ html {
 
 body {
   color: white;
+  font-family: Verdana, sans-serif;
 }
 
 #intro-gradient {
@@ -94,11 +95,19 @@ h3 {
 
 /* getting messy, organize later */
 .timeline.desktop {
-  background: linear-gradient(black, darkblue, 80%, red, black);
+  /* background: linear-gradient(black, darkblue, 80%, red, black); */
+    background: radial-gradient(
+    circle farthest-corner at center 125px,
+    #2B3784,
+    black 90%
+  ) no-repeat;
+
 }
 
 .decade.desktop {
   background: none;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 .decade.desktop .comic-covers {
@@ -108,4 +117,8 @@ h3 {
   margin: 0 auto;
   max-width: 650px;
   padding: 10px;
+}
+
+h2 {
+  font-size: 1.8rem;
 }
