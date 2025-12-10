@@ -49,7 +49,6 @@ function toggleContent(e) {
 };
 
 hideAll(allExpandedInfo);
-onlyDisplayFirst(decades);
 
 for (let i = 0; i < comicCovers.length; i++) {
   const comics = comicCovers[i].getElementsByClassName('comic');
@@ -63,6 +62,27 @@ for (let i = 0; i < expandContractToggles.length; i++) {
   expandContractToggles[i].addEventListener('pointerdown', toggleContent);
 }
 
+if (window.visualViewport.width < 1280) {
+  /* Mobile view */
+  onlyDisplayFirst(decades);
+} else {
+  /* Desktop view */
+  const arrows = document.getElementsByClassName('arrow');
+  hideAll(arrows);
+
+  for (let i = 0; i < decades.length; i++) {
+    const years = ['1960s', '1970s', '1980s', '1990s', '2000s', '2010s'];
+    const nav = decades[i].querySelector('.decade-nav');
+    const h2 = document.createElement('h2');
+    const heading = document.createTextNode(years[i]);
+
+    h2.appendChild(heading);
+
+    nav.after(h2);
+    nav.remove();
+    decades[i].classList.add('desktop');
+  }
+}
 /* gonna start looking messy, need to organize */
 const rightArrows = document.getElementsByClassName('right-arrow');
 
