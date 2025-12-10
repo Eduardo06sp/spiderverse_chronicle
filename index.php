@@ -62,9 +62,6 @@ $conn->close();
         <button class="arrow right-arrow">></button>
       </div>
       <div class="comic-covers">
-        <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
-        <!-- MISSING DESIGN FOR SINGLE-COMIC DECADE -->
-        <!-- MISSING DESIGN FOR CONTRACTED STATE -->
         <img class="comic" src="assets/images/03_cover.jpg">
         <img class="comic" src="assets/images/07_cover.jpg">
         <img class="comic" src="assets/images/08_cover.jpg">
