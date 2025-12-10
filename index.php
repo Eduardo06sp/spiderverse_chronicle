@@ -58,6 +58,11 @@ $conn->close();
         <button class="arrow left-arrow"><</button>
         <select name="decades" id="decade-select">
           <option value="1960s" selected>The 1960s</option>
+          <option value="1970s">The 1970s</option>
+          <option value="1980s">The 1980s</option>
+          <option value="1990s">The 1990s</option>
+          <option value="2000s">The 2000s</option>
+          <option value="2010s">The 2010s</option>
         </select>
         <button class="arrow right-arrow">></button>
       </div>
