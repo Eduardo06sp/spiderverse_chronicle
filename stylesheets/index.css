@@ -32,6 +32,13 @@ body {
   background-size: cover;
 }
 
+.decade-nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+
 h2 {
   padding: 12px 0 12px 0;
 }

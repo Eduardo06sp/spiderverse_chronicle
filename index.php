@@ -54,8 +54,10 @@ $conn->close();
 
   <div id="timeline">
     <div class="decade expanded">
-      <div class="decade-info">
+      <div class="decade-nav">
+        <button class="arrow left-arrow"><</button>
         <h2 class="year">The 1960s</h2>
+        <button class="arrow right-arrow">></button>
       </div>
       <div class="comic-covers">
         <!-- DYNAMIC, CAN BE 2 OR EVEN 5 -->
