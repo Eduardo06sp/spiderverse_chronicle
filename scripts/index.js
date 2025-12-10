@@ -1,6 +1,6 @@
 const decade = document.querySelector('.decade');
 const comicCovers = document.getElementsByClassName('comic-covers');
-const expandedInfo = document.getElementsByClassName('expanded-info');
+const allExpandedInfo = document.getElementsByClassName('expanded-info');
 const expandContractToggles = document.getElementsByClassName('expand-contract-toggle');
 
 console.log(decade);
@@ -38,18 +38,21 @@ function toggleVisibility(el) {
 };
 
 function toggleContent(e) {
-  if (e.target.textContent == 'See More' && expandedInfo[0].classList.contains('hidden')) {
-    toggleVisibility(expandedInfo[0]);
+  const decade = e.target.parentElement;
+  const expandedInfo = decade.querySelector('.expanded-info');
+
+  if (e.target.textContent == 'See More' && expandedInfo.classList.contains('hidden')) {
+    toggleVisibility(expandedInfo);
     e.target.textContent = 'See Less';
-  } else if (e.target.textContent == 'See Less' && !(expandedInfo[0].classList.contains('hidden'))) {
-    toggleVisibility(expandedInfo[0]);
+  } else if (e.target.textContent == 'See Less' && !(expandedInfo.classList.contains('hidden'))) {
+    toggleVisibility(expandedInfo);
     e.target.textContent = 'See More';
   }
 };
 
 removeExpandClass(decade);
 addContractClass(decade);
-hideAll(expandedInfo);
+hideAll(allExpandedInfo);
 
 for (let cover in comicCovers) {
   const comics = comicCovers[cover].getElementsByClassName('comic');
