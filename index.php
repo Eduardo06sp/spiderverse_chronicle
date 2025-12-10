@@ -118,37 +118,6 @@ if ($decade_data) {
   <!-- End Timeline -->
   </div>
   <?php $conn->close(); ?>
-  <h1>BELOW IS DUPLICATE</h1>
-
-  <div id="timeline">
-    <button>1960s</button>
-    <button>1970s</button>
-    <button>1980s</button>
-  </div>
-
-  <div id="content-display">
-    <?php if ($decade_data): ?>
-    <h3>The <?php echo $decade_data['year']; ?>s</h3>
-    <p><?php echo $decade_data['decade_summary']; ?></p>
-
-    <div class="character-box">
-      <strong>Key Characters:</strong>
-      <p><?php echo $decade_data['character_summary']; ?></p>
-    </div>
-
-    <div class="comic-gallery">
-      <?php while($comic = $comics_result->fetch_assoc()): ?>
-      <div class="comic-item">
-        <img src="<?php echo $comic['image_filepath']; ?>" alt="<?php echo $comic['title']; ?>">
-        <p><strong><?php echo $comic['title']; ?></strong></p>
-      </div>
-      <?php endwhile; ?>
-    </div>
-
-    <?php else: ?>
-      <p>Select a decade to view the history.</p>
-    <?php endif; ?>
-  </div>
 
   <div id="footer">
     <p>Made for class project - IST 4310 - CSUSB</p>
