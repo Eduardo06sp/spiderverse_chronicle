@@ -1,6 +1,5 @@
 const decade = document.querySelector('.decade');
 const comicCovers = document.getElementsByClassName('comic-covers');
-const comics = comicCovers[0].getElementsByClassName('comic');
 const expandedInfo = document.getElementsByClassName('expanded-info');
 const expandContractToggles = document.getElementsByClassName('expand-contract-toggle');
 
@@ -50,8 +49,12 @@ function toggleContent(e) {
 
 removeExpandClass(decade);
 addContractClass(decade);
-onlyDisplayFirst(comics);
 hideAll(expandedInfo);
+
+for (let cover in comicCovers) {
+  const comics = comicCovers[cover].getElementsByClassName('comic');
+  onlyDisplayFirst(comics);
+}
 
 for (let toggle in expandContractToggles) {
   expandContractToggles[toggle].addEventListener('pointerdown', toggleContent);
