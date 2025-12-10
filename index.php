@@ -56,7 +56,9 @@ $conn->close();
     <div class="decade expanded">
       <div class="decade-nav">
         <button class="arrow left-arrow"><</button>
-        <h2 class="year">The 1960s</h2>
+        <select name="decades" id="decade-select">
+          <option value="1960s" selected>The 1960s</option>
+        </select>
         <button class="arrow right-arrow">></button>
       </div>
       <div class="comic-covers">
