@@ -54,7 +54,7 @@ if ($decade_data) {
     <p>IST 4310</p>
   </div>
 
-  <div id="timeline">
+  <div class="timeline">
 
     <?php 
     /* Loop through decades */

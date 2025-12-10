@@ -87,6 +87,8 @@ if (window.visualViewport.width < 1280) {
     nav.remove();
     decades[i].classList.add('desktop');
   }
+
+  document.querySelector('.timeline').classList.add('desktop');
 }
 /* gonna start looking messy, need to organize */
 const rightArrows = document.getElementsByClassName('right-arrow');

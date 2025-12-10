@@ -88,6 +88,24 @@ h3 {
 
 /* Footer */
 #footer {
-  background-color: lightgrey;
+  background-color: black;
   padding: 12px;
+}
+
+/* getting messy, organize later */
+.timeline.desktop {
+  background: linear-gradient(black, darkblue, 80%, red, black);
+}
+
+.decade.desktop {
+  background: none;
+}
+
+.decade.desktop .comic-covers {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  max-width: 650px;
+  padding: 10px;
 }
