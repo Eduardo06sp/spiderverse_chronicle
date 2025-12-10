@@ -49,6 +49,7 @@ function toggleContent(e) {
 };
 
 hideAll(allExpandedInfo);
+onlyDisplayFirst(decades);
 
 for (let i = 0; i < comicCovers.length; i++) {
   const comics = comicCovers[i].getElementsByClassName('comic');
