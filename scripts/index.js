@@ -1,9 +1,7 @@
-const decade = document.querySelector('.decade');
+const decades = document.getElementsByClassName('decade');
 const comicCovers = document.getElementsByClassName('comic-covers');
 const allExpandedInfo = document.getElementsByClassName('expanded-info');
 const expandContractToggles = document.getElementsByClassName('expand-contract-toggle');
-
-console.log(decade);
 
 function removeExpandClass(el) {
   el.classList.remove('expanded');
@@ -50,12 +48,13 @@ function toggleContent(e) {
   }
 };
 
-removeExpandClass(decade);
-addContractClass(decade);
 hideAll(allExpandedInfo);
 
 for (let i = 0; i < comicCovers.length; i++) {
   const comics = comicCovers[i].getElementsByClassName('comic');
+
+  removeExpandClass(decades[i]);
+  addContractClass(decades[i]);
   onlyDisplayFirst(comics);
 }
 
