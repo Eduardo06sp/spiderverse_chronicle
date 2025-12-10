@@ -20,18 +20,20 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$decades_sql = "SELECT * FROM eras";
+$decades_result = $conn->query($decades_sql);
 // Fetch 1960s Data for the MVP
 $decade_sql = "SELECT * FROM eras WHERE decade = '1960s'";
 $decade_result = $conn->query($decade_sql);
 $decade_data = $decade_result->fetch_assoc();
 
 // Fetch Comics for that decade
+/*
 if ($decade_data) {
   $comics_sql = "SELECT * FROM comic_covers WHERE era_id = " . $decade_data['era_id'];
   $comics_result = $conn->query($comics_sql);
 }
-
-$conn->close();
+*/
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +55,28 @@ $conn->close();
   </div>
 
   <div id="timeline">
+
+    <!-- Loop through decades -->
+    <?php while($decade = $decades_result->fetch_assoc()): ?>
+
+      <!-- Variable Declarations -->
+      <?php $characters_sql = "SELECT * FROM characters WHERE era_id = " . $decade['era_id']; ?>
+      <?php $characters_result = $conn->query($characters_sql); ?>
+      <?php $comics_sql = "SELECT * FROM comic_covers WHERE era_id = " . $decade['era_id']; ?>
+      <?php $comics_result = $conn->query($comics_sql); ?>
+
+      <!-- Loop through images -->
+      <?php while($comic = $comics_result->fetch_assoc()): ?>
+        <img class="comic" src="<?php echo $comic['image_url']; ?>" alt="<?php echo $comic['title']; ?>">
+      </div>
+      <?php endwhile; ?>
+
+      <!-- Loop through characters -->
+      <?php while($character = $characters_result->fetch_assoc()): ?>
+        <?php /* echo "{$character['name']} is one of em";*/ ?>
+      <?php endwhile; ?>
+    <?php endwhile; ?>
+
     <div class="decade expanded">
       <div class="decade-nav">
         <button class="arrow left-arrow"><</button>
@@ -80,7 +104,7 @@ $conn->close();
       </div>
     </div>
   </div>
-
+  <?php $conn->close(); ?>
   <h1>BELOW IS DUPLICATE</h1>
 
   <div id="timeline">
