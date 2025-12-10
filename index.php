@@ -56,27 +56,17 @@ if ($decade_data) {
 
   <div id="timeline">
 
-    <!-- Loop through decades -->
-    <?php while($decade = $decades_result->fetch_assoc()): ?>
+    <?php 
+    /* Loop through decades */
+    while($decade = $decades_result->fetch_assoc()):
 
-      <!-- Variable Declarations -->
-      <?php $characters_sql = "SELECT * FROM characters WHERE era_id = " . $decade['era_id']; ?>
-      <?php $characters_result = $conn->query($characters_sql); ?>
-      <?php $comics_sql = "SELECT * FROM comic_covers WHERE era_id = " . $decade['era_id']; ?>
-      <?php $comics_result = $conn->query($comics_sql); ?>
+      /* Variable Declarations */
+      $characters_sql = "SELECT * FROM characters WHERE era_id = " . $decade['era_id'];
+      $characters_result = $conn->query($characters_sql);
+      $comics_sql = "SELECT * FROM comic_covers WHERE era_id = " . $decade['era_id'];
+      $comics_result = $conn->query($comics_sql);
 
-      <!-- Loop through images -->
-      <?php while($comic = $comics_result->fetch_assoc()): ?>
-        <img class="comic" src="<?php echo $comic['image_url']; ?>" alt="<?php echo $comic['title']; ?>">
-      </div>
-      <?php endwhile; ?>
-
-      <!-- Loop through characters -->
-      <?php while($character = $characters_result->fetch_assoc()): ?>
-        <?php /* echo "{$character['name']} is one of em";*/ ?>
-      <?php endwhile; ?>
-    <?php endwhile; ?>
-
+    echo '
     <div class="decade expanded">
       <div class="decade-nav">
         <button class="arrow left-arrow"><</button>
@@ -91,18 +81,41 @@ if ($decade_data) {
         <button class="arrow right-arrow">></button>
       </div>
       <div class="comic-covers">
-        <img class="comic" src="assets/images/03_cover.jpg">
-        <img class="comic" src="assets/images/07_cover.jpg">
-        <img class="comic" src="assets/images/08_cover.jpg">
+      ';
+
+      /* Loop through images */
+      while($comic = $comics_result->fetch_assoc()):
+        echo '<img class="comic" src="' . $comic['image_url'] . '" alt="' . $comic['title'] . '">';
+      endwhile;
+
+      echo '
       </div>
       <button class="expand-contract-toggle">See More</button>
       <div class="expanded-info">
         <h3 class="summary-heading">Summary</h3>
-        <p class="decade-summary">After Norman Osborn regains his memory and becomes the Green Goblin again, he kidnaps Gwen Stacy to lure Spider-Man. He throws Gwen from the top of the George Washington (or Brooklyn) Bridge. Spider-Man shoots a web-line to save her, but the sudden stop results in a "snap" at her neck, killing her instantly. A devastated and enraged Spider-Man seeks vengeance.</p>
+        ';
+
+        echo '<p class="decade-summary">' . $decade['summary'] . '</p>';
+        
+        echo '
         <h3 class="characters-heading">Key Characters</h3>
-        <p class="key-characters">Event: The Night Gwen Stacy Died. Also includes the first appearance of the Green Goblin (Norman Osborn) since his amnesia.</p>
+        ';
+
+      /* Loop through characters */
+     while($character = $characters_result->fetch_assoc()):
+        /* echo "{$character['name']} is one of em";*/
+        echo '<p class="key-characters">' . $character['name'] . '</p>';
+     endwhile;
+
+
+        echo '
       </div>
     </div>
+    ';
+    endwhile;
+    ?>
+
+  <!-- End Timeline -->
   </div>
   <?php $conn->close(); ?>
   <h1>BELOW IS DUPLICATE</h1>
