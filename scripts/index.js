@@ -62,3 +62,42 @@ for (let i = 0; i < comicCovers.length; i++) {
 for (let i = 0; i < expandContractToggles.length; i++) {
   expandContractToggles[i].addEventListener('pointerdown', toggleContent);
 }
+
+/* gonna start looking messy, need to organize */
+const rightArrows = document.getElementsByClassName('right-arrow');
+
+function showNext(e) {
+  const currentComic = document.querySelector(".decade:not(.hidden)");
+  let nextComic = currentComic.nextElementSibling;
+
+  toggleVisibility(currentComic);
+
+  if (nextComic == null) {
+    nextComic = decades[0];
+  }
+
+  toggleVisibility(nextComic);
+};
+
+for (let i = 0; i < rightArrows.length; i++) {
+  rightArrows[i].addEventListener('pointerdown', showNext);
+}
+
+const leftArrows = document.getElementsByClassName('left-arrow');
+
+function showPrevious(e) {
+  const currentComic = document.querySelector(".decade:not(.hidden)");
+  let previousComic = currentComic.previousElementSibling;
+
+  toggleVisibility(currentComic);
+
+  if (previousComic == null) {
+    previousComic = decades[decades.length - 1];
+  }
+
+  toggleVisibility(previousComic);
+};
+
+for (let i = 0; i < leftArrows.length; i++) {
+  leftArrows[i].addEventListener('pointerdown', showPrevious);
+}
