@@ -54,11 +54,11 @@ removeExpandClass(decade);
 addContractClass(decade);
 hideAll(allExpandedInfo);
 
-for (let cover in comicCovers) {
-  const comics = comicCovers[cover].getElementsByClassName('comic');
+for (let i = 0; i < comicCovers.length; i++) {
+  const comics = comicCovers[i].getElementsByClassName('comic');
   onlyDisplayFirst(comics);
 }
 
-for (let toggle in expandContractToggles) {
-  expandContractToggles[toggle].addEventListener('pointerdown', toggleContent);
+for (let i = 0; i < expandContractToggles.length; i++) {
+  expandContractToggles[i].addEventListener('pointerdown', toggleContent);
 }
