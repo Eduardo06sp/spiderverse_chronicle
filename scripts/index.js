@@ -2,7 +2,7 @@ const decade = document.querySelector('.decade');
 const comicCovers = document.getElementsByClassName('comic-covers');
 const comics = comicCovers[0].getElementsByClassName('comic');
 const expandedInfo = document.getElementsByClassName('expanded-info');
-const expandContractToggle = document.getElementsByClassName('expand-contract-toggle');
+const expandContractToggles = document.getElementsByClassName('expand-contract-toggle');
 
 console.log(decade);
 
@@ -52,4 +52,7 @@ removeExpandClass(decade);
 addContractClass(decade);
 onlyDisplayFirst(comics);
 hideAll(expandedInfo);
-expandContractToggle[0].addEventListener('pointerdown', toggleContent);
+
+for (let toggle in expandContractToggles) {
+  expandContractToggles[toggle].addEventListener('pointerdown', toggleContent);
+}
