@@ -91,6 +91,10 @@ h3 {
   padding: 10px;
 }
 
+.character-description {
+  margin-bottom: 12px;
+}
+
 /* Footer */
 #footer {
   background-color: black;

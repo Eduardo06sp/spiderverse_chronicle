@@ -105,6 +105,7 @@ if ($decade_data) {
      while($character = $characters_result->fetch_assoc()):
         /* echo "{$character['name']} is one of em";*/
         echo '<p class="key-characters">' . $character['name'] . '</p>';
+        echo '<p class="character-description">' . $character['description'] . '</p>';
      endwhile;
 
 
