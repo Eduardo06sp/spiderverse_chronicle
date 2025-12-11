@@ -101,9 +101,15 @@ h3 {
 }
 
 .expand-contract-toggle {
+  background-color: black;
+  border-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  color: white;
   display: block;
   font-size: 1.4rem;
   margin: 0 auto;
+  padding: 8px;
 }
 
 .expanded-info {
