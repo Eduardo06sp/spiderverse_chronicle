@@ -1,4 +1,5 @@
 const decades = document.getElementsByClassName('decade');
+const decadeDropDowns = document.getElementsByTagName('select');
 const comicCovers = document.getElementsByClassName('comic-covers');
 const allExpandedInfo = document.getElementsByClassName('expanded-info');
 const expandContractToggles = document.getElementsByClassName('expand-contract-toggle');
@@ -127,4 +128,8 @@ function showPrevious(e) {
 
 for (let i = 0; i < leftArrows.length; i++) {
   leftArrows[i].addEventListener('pointerdown', showPrevious);
-}
+};
+
+for (let i = 0; i < decadeDropDowns.length; i++) {
+  decadeDropDowns[i][i].setAttribute('selected', '');
+};

@@ -71,7 +71,7 @@ if ($decade_data) {
       <div class="decade-nav">
         <button class="arrow left-arrow"><</button>
         <select name="decades" id="decade-select">
-          <option value="1960s" selected>The 1960s</option>
+          <option value="1960s">The 1960s</option>
           <option value="1970s">The 1970s</option>
           <option value="1980s">The 1980s</option>
           <option value="1990s">The 1990s</option>
