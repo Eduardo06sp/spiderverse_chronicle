@@ -44,6 +44,24 @@ body {
   font-size: 2rem;
 }
 
+.arrow {
+  background-color: black;
+  border-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  color: white;
+  width: 55px;
+}
+
+.decade select {
+  background-color: black;
+  border-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  color: white;
+}
+
 h2 {
   padding: 12px 0 12px 0;
 }
