@@ -36,6 +36,7 @@ body {
 
 .decade-nav {
   display: flex;
+  gap: 5px;
   justify-content: center;
   position: sticky;
   top: 0;
@@ -61,6 +62,7 @@ body {
   border-radius: 5px;
   border-style: solid;
   color: white;
+  padding: 5px;
 }
 
 h2 {
